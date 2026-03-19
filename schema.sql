@@ -45,6 +45,7 @@ create table public.leads (
   id uuid default uuid_generate_v4() primary key,
   user_id uuid references public.profiles(id) not null,
   topic_id uuid references public.topics(id) not null,
+  target_business_id uuid references public.profiles(id), -- Nullable if open market, required if targeted
   name text not null,
   email text not null,
   phone text,
@@ -64,13 +65,14 @@ create policy "Users can create leads" on leads
 create policy "Users can view own leads" on leads
   for select using (auth.uid() = user_id);
 
--- Businesses can view 'available' leads (but maybe not the PII yet, handled in UI/Function)
+-- Businesses can view available leads directed at them or the open market
 create policy "Businesses can view available leads" on leads
   for select using (
     status = 'available' 
     and exists (
       select 1 from public.profiles where id = auth.uid() and role = 'business'
     )
+    and (target_business_id is null or target_business_id = auth.uid())
   );
 
 -----------------------------------------------------------------------------------

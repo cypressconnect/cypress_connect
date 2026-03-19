@@ -4,7 +4,23 @@ import { useAuth } from '../AuthContext';
 
 const DashboardHome = () => (
   <div className="animate-fade-in">
-    <h2 style={{ marginBottom: '1.5rem' }}>Business Dashboard</h2>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+      <h2>Business Dashboard</h2>
+      <div style={{ background: 'rgba(37, 99, 235, 0.1)', color: 'var(--primary)', padding: '0.5rem 1rem', borderRadius: '20px', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <span style={{ display: 'inline-block', width: '8px', height: '8px', background: 'var(--accent)', borderRadius: '50%' }}></span>
+        2 New Notifications
+      </div>
+    </div>
+
+    <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '2rem', borderLeft: '4px solid var(--accent)' }}>
+      <h4 style={{ marginBottom: '0.5rem' }}>Notification Center</h4>
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'var(--text-muted)' }}>
+        <li style={{ padding: '0.5rem 0', borderBottom: '1px solid var(--border)' }}>🔔 You received a new targeted request for <strong>AP Math Tutoring</strong>!</li>
+        <li style={{ padding: '0.5rem 0' }}>🔔 You received a new targeted request for <strong>Custom Cookies</strong>!</li>
+      </ul>
+      <Link to="buy-leads" style={{ display: 'inline-block', marginTop: '1rem', color: 'var(--primary)', fontWeight: '500' }}>View Requests &rarr;</Link>
+    </div>
+
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
       <div className="glass-panel" style={{ padding: '2rem', borderTop: '4px solid var(--primary)' }}>
         <h3>Find Customers</h3>
@@ -25,26 +41,49 @@ const DashboardHome = () => (
   </div>
 );
 
+const LeadCard = ({ title, time, price, name, phone, email }) => {
+  const [purchased, setPurchased] = React.useState(false);
+  
+  return (
+    <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div>
+        <h4 style={{ marginBottom: '0.25rem' }}>{title}</h4>
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '1rem' }}>{time}</p>
+        <div style={{ background: 'var(--bg-elevated)', padding: '1rem', borderRadius: '8px', fontSize: '0.875rem', color: 'var(--text-main)', display: 'inline-block' }}>
+          {purchased ? (
+            <>
+              <p><strong>Name:</strong> {name}</p>
+              <p><strong>Phone:</strong> {phone}</p>
+              <p><strong>Email:</strong> {email}</p>
+            </>
+          ) : (
+            <>
+              <p><strong>Name:</strong> {name.charAt(0)}*** {name.split(' ')[1]?.charAt(0)}***</p>
+              <p><strong>Phone:</strong> (***) ***-****</p>
+              <p><strong>Email:</strong> {email.charAt(0)}***@***.com</p>
+            </>
+          )}
+        </div>
+      </div>
+      <div>
+        {!purchased ? (
+          <button className="btn btn-primary" onClick={() => setPurchased(true)}>Buy Connect for ${price}</button>
+        ) : (
+          <button className="btn btn-secondary" disabled style={{ opacity: 0.8 }}>Contact Unlocked</button>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const BuyLeads = () => (
   <div className="animate-fade-in">
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
       <h2>Customer Requests</h2>
       <span style={{ padding: '0.5rem 1rem', background: 'rgba(99,102,241,0.1)', color: 'var(--primary)', borderRadius: '8px', fontWeight: 'bold' }}>Credit Balance: $150</span>
     </div>
-    <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <div>
-        <h4 style={{ marginBottom: '0.25rem' }}>Looking for AP Math Tutoring</h4>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Submitted 2 hours ago &middot; High School</p>
-      </div>
-      <button className="btn btn-primary" onClick={() => alert('Lead purchased! Connection details sent to your email.')}>Buy Connect for $5</button>
-    </div>
-    <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <div>
-        <h4 style={{ marginBottom: '0.25rem' }}>Want to buy 2 dozen custom cookies</h4>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Submitted 10 mins ago &middot; Auto-verified</p>
-      </div>
-      <button className="btn btn-primary" onClick={() => alert('Lead purchased! Connection details sent to your email.')}>Buy Connect for $3</button>
-    </div>
+    <LeadCard title="Looking for AP Math Tutoring" time="Submitted 2 hours ago &middot; High School" price="5" name="John Smith" phone="(555) 123-4567" email="john@example.com" />
+    <LeadCard title="Want to buy 2 dozen custom cookies" time="Submitted 10 mins ago &middot; Auto-verified" price="3" name="Sarah Jenkins" phone="(555) 987-6543" email="sarah@example.com" />
   </div>
 );
 
