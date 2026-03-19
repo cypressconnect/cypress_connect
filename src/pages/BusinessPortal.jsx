@@ -36,14 +36,14 @@ const BuyLeads = () => (
         <h4 style={{ marginBottom: '0.25rem' }}>Looking for AP Math Tutoring</h4>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Submitted 2 hours ago &middot; High School</p>
       </div>
-      <button className="btn btn-primary">Buy Connect for $5</button>
+      <button className="btn btn-primary" onClick={() => alert('Lead purchased! Connection details sent to your email.')}>Buy Connect for $5</button>
     </div>
     <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <div>
         <h4 style={{ marginBottom: '0.25rem' }}>Want to buy 2 dozen custom cookies</h4>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Submitted 10 mins ago &middot; Auto-verified</p>
       </div>
-      <button className="btn btn-primary">Buy Connect for $3</button>
+      <button className="btn btn-primary" onClick={() => alert('Lead purchased! Connection details sent to your email.')}>Buy Connect for $3</button>
     </div>
   </div>
 );
@@ -61,10 +61,18 @@ const BuyTopics = () => (
 const AddService = () => (
   <div className="animate-fade-in glass-panel" style={{ padding: '2rem' }}>
     <h2 style={{ marginBottom: '1rem' }}>Add Service or Class</h2>
-    <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '600px' }}>
+    <form onSubmit={(e) => { e.preventDefault(); alert('Service successfully posted!'); }} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '600px' }}>
       <div>
         <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Title/Name</label>
         <input type="text" placeholder="e.g. AP Physics Tutoring" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }} />
+      </div>
+      <div>
+        <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Class Timings</label>
+        <input type="text" placeholder="e.g. Saturdays 10AM - 12PM" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }} />
+      </div>
+      <div>
+        <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Location</label>
+        <input type="text" placeholder="e.g. Community Center or Zoom" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }} />
       </div>
       <div>
         <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Description</label>

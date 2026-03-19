@@ -24,7 +24,7 @@ const SubmitLead = () => (
   <div className="animate-fade-in glass-panel" style={{ padding: '2rem' }}>
     <h2 style={{ marginBottom: '1rem' }}>Request a Service</h2>
     <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Fill out the details below. Student businesses will contact you.</p>
-    <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '600px' }}>
+    <form onSubmit={(e) => { e.preventDefault(); alert('Request successfully submitted! Providers will contact you soon.'); }} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '600px' }}>
       <div>
         <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Name</label>
         <input type="text" placeholder="Your Name" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }} />
@@ -60,14 +60,21 @@ const Topics = () => (
     <h2 style={{ marginBottom: '1rem' }}>Interested Topics</h2>
     <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Join topic groups. Organizers will be notified of your interest.</p>
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-      <div className="glass-panel" style={{ padding: '1.5rem', flex: '1 1 300px' }}>
-        <h4 style={{ marginBottom: '0.5rem' }}>AP Physics Study Group</h4>
-        <button className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }}>Express Interest</button>
-      </div>
-      <div className="glass-panel" style={{ padding: '1.5rem', flex: '1 1 300px' }}>
-        <h4 style={{ marginBottom: '0.5rem' }}>Friday Football Tailgate</h4>
-        <button className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }}>Express Interest</button>
-      </div>
+      {[
+        "Chess", 
+        "Swimming", 
+        "Math Tutoring", 
+        "History Tutoring", 
+        "Science Tutoring", 
+        "Piano Lessons", 
+        "Music Lessons", 
+        "Sports"
+      ].map((topic) => (
+        <div key={topic} className="glass-panel" style={{ padding: '1.5rem', flex: '1 1 300px' }}>
+          <h4 style={{ marginBottom: '0.5rem' }}>{topic}</h4>
+          <button className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }} onClick={() => alert('Interest registered! You will be notified when classes open.')}>Express Interest</button>
+        </div>
+      ))}
     </div>
   </div>
 );
