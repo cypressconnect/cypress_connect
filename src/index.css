@@ -2,23 +2,23 @@
 
 :root {
   /* Dynamic Modern Palette */
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
-  --secondary: #10b981;
-  --accent: #f43f5e;
+  --primary: #2563eb; /* Blue */
+  --primary-hover: #1d4ed8;
+  --secondary: #16a34a; /* Green */
+  --accent: #0ea5e9; /* Light Blue */
   
-  /* Dark Mode Base (Defaulting to sleek dark aesthetic per instructions) */
-  --bg-deep: #030712;
-  --bg-base: #111827;
-  --bg-surface: #1f2937;
-  --bg-elevated: #374151;
+  /* Light Mode Base */
+  --bg-deep: #f8fafc;
+  --bg-base: #ffffff;
+  --bg-surface: #f1f5f9;
+  --bg-elevated: #ffffff;
   
-  --text-main: #f9fafb;
-  --text-muted: #9ca3af;
+  --text-main: #0f172a;
+  --text-muted: #475569;
   
-  --border: rgba(255, 255, 255, 0.1);
-  --glass-bg: rgba(31, 41, 55, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.05);
+  --border: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 1);
 }
 
 * {
@@ -96,18 +96,18 @@ button {
 }
 
 .btn-secondary {
-  background: rgba(255,255,255,0.1);
-  color: white;
-  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.05);
+  color: var(--text-main);
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 .btn-secondary:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.1);
   transform: translateY(-2px);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #a855f7, #3b82f6);
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

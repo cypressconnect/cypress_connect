@@ -7,9 +7,9 @@ const DashboardHome = () => (
     <h2 style={{ marginBottom: '1.5rem' }}>User Dashboard</h2>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
       <div className="glass-panel" style={{ padding: '2rem' }}>
-        <h3>Submit a Lead</h3>
+        <h3>Request a Service</h3>
         <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>Looking for a service? Submit your request.</p>
-        <Link to="submit-lead" className="btn btn-primary" style={{ display: 'inline-block' }}>Submit Lead</Link>
+        <Link to="submit-lead" className="btn btn-primary" style={{ display: 'inline-block' }}>Submit Request</Link>
       </div>
       <div className="glass-panel" style={{ padding: '2rem' }}>
         <h3>Topics</h3>
@@ -22,21 +22,33 @@ const DashboardHome = () => (
 
 const SubmitLead = () => (
   <div className="animate-fade-in glass-panel" style={{ padding: '2rem' }}>
-    <h2 style={{ marginBottom: '1rem' }}>Submit a Lead</h2>
-    <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Fill out the details below. Businesses will contact you.</p>
+    <h2 style={{ marginBottom: '1rem' }}>Request a Service</h2>
+    <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Fill out the details below. Student businesses will contact you.</p>
     <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '600px' }}>
       <div>
+        <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Name</label>
+        <input type="text" placeholder="Your Name" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }} />
+      </div>
+      <div>
+        <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Phone Number</label>
+        <input type="tel" placeholder="(123) 456-7890" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }} />
+      </div>
+      <div>
+        <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Email</label>
+        <input type="email" placeholder="you@example.com" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }} />
+      </div>
+      <div>
         <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Service Category</label>
-        <select style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'white' }}>
-          <option>Plumbing</option>
+        <select style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }}>
           <option>Tutoring</option>
-          <option>Home Cleaning</option>
-          <option>Personal Training</option>
+          <option>Food & Bake Sales</option>
+          <option>Odd Jobs & Errands</option>
+          <option>Event Tickets / Organization</option>
         </select>
       </div>
       <div>
         <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Description</label>
-        <textarea rows={4} placeholder="Describe exactly what you need..." style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'white' }}></textarea>
+        <textarea rows={4} placeholder="Describe exactly what you need..." style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }}></textarea>
       </div>
       <button type="submit" className="btn btn-primary" style={{ alignSelf: 'flex-start' }}>Submit Request</button>
     </form>
@@ -49,11 +61,11 @@ const Topics = () => (
     <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Join topic groups. Organizers will be notified of your interest.</p>
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
       <div className="glass-panel" style={{ padding: '1.5rem', flex: '1 1 300px' }}>
-        <h4 style={{ marginBottom: '0.5rem' }}>Yoga in the Park</h4>
+        <h4 style={{ marginBottom: '0.5rem' }}>AP Physics Study Group</h4>
         <button className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }}>Express Interest</button>
       </div>
       <div className="glass-panel" style={{ padding: '1.5rem', flex: '1 1 300px' }}>
-        <h4 style={{ marginBottom: '0.5rem' }}>Local Tech Meetup</h4>
+        <h4 style={{ marginBottom: '0.5rem' }}>Friday Football Tailgate</h4>
         <button className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }}>Express Interest</button>
       </div>
     </div>
@@ -67,7 +79,7 @@ export default function UserPortal() {
     <div className="container" style={{ padding: '2rem 1.5rem', display: 'flex', gap: '2rem', minHeight: '80vh' }}>
       <aside style={{ width: '250px', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         <Link to="" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Dashboard</Link>
-        <Link to="submit-lead" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Submit Lead</Link>
+        <Link to="submit-lead" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Request Service</Link>
         <Link to="topics" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Topics</Link>
       </aside>
       <main style={{ flex: 1 }}>

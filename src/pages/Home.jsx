@@ -11,14 +11,14 @@ export default function Home() {
             Where Needs Meet <span className="gradient-text">Solutions</span>
           </h1>
           <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 3rem auto' }}>
-            Cypress Connect is the definitive marketplace connecting everyday people with the businesses ready to serve them.
+            Cypress Connect is the definitive marketplace connecting everyday people with the high school student businesses ready to serve them.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <Link to="/user" className="btn btn-primary">
-              I'm a User <ArrowRight size={20} />
+              I'm a Customer <ArrowRight size={20} />
             </Link>
             <Link to="/business" className="btn btn-secondary">
-              I'm a Business
+              I'm a Student Business
             </Link>
           </div>
         </div>
@@ -29,14 +29,14 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
             <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center' }}>
               <Users size={40} color="var(--primary)" style={{ marginBottom: '1rem' }} />
-              <h3 style={{ marginBottom: '1rem' }}>For Users</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Submit service requests, explore local classes, and connect directly with professionals.</p>
+              <h3 style={{ marginBottom: '1rem' }}>For Customers</h3>
+              <p style={{ color: 'var(--text-muted)' }}>Submit service requests, explore local classes, and support student entrepreneurs.</p>
             </div>
             
             <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center' }}>
               <Briefcase size={40} color="var(--secondary)" style={{ marginBottom: '1rem' }} />
-              <h3 style={{ marginBottom: '1rem' }}>For Businesses</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Purchase highly qualified leads, sponsor local topics, and grow your service offerings.</p>
+              <h3 style={{ marginBottom: '1rem' }}>For Student Businesses</h3>
+              <p style={{ color: 'var(--text-muted)' }}>Find people needing tutors, bake sales, odd jobs, and grow your student business.</p>
             </div>
 
             <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center' }}>

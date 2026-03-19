@@ -26,8 +26,8 @@ const Navbar = () => {
           <span className="gradient-text">Cypress Connect</span>
         </Link>
         <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-          <Link to="/user" style={{ fontWeight: 500, color: 'var(--text-muted)' }}>For Users</Link>
-          <Link to="/business" style={{ fontWeight: 500, color: 'var(--text-muted)' }}>For Business</Link>
+          <Link to="/user" style={{ fontWeight: 500, color: 'var(--text-muted)' }}>For Customers</Link>
+          <Link to="/business" style={{ fontWeight: 500, color: 'var(--text-muted)' }}>For Student Businesses</Link>
           
           {user ? (
             <button onClick={handleLogout} className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }}>Logout</button>
