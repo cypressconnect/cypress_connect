@@ -52,8 +52,22 @@ const BuyTopics = () => (
   <div className="animate-fade-in">
     <h2 style={{ marginBottom: '1rem' }}>Topic Sponsorships</h2>
     <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Target users interested in specific categories.</p>
-    <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center' }}>
-      <h3 style={{ marginBottom: '1rem' }}>Feature coming soon!</h3>
+    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+      {[
+        "Chess", 
+        "Swimming", 
+        "Math Tutoring", 
+        "History Tutoring", 
+        "Science Tutoring", 
+        "Piano Lessons", 
+        "Music Lessons", 
+        "Sports"
+      ].map((topic) => (
+        <div key={topic} className="glass-panel" style={{ padding: '1.5rem', flex: '1 1 300px' }}>
+          <h4 style={{ marginBottom: '0.5rem' }}>{topic}</h4>
+          <button className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }} onClick={() => alert('Sponsorship confirmed! We will contact you soon.')}>Sponsor Topic</button>
+        </div>
+      ))}
     </div>
   </div>
 );
@@ -89,7 +103,7 @@ export default function BusinessPortal() {
   return (
     <div className="container" style={{ padding: '2rem 1.5rem', display: 'flex', gap: '2rem', minHeight: '80vh' }}>
       <aside style={{ width: '250px', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-        <Link to="" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Dashboard</Link>
+        <Link to="/business" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Dashboard</Link>
         <Link to="buy-leads" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Find Customers</Link>
         <Link to="buy-topics" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Sponsorships</Link>
         <Link to="add-service" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Add Service/Class</Link>

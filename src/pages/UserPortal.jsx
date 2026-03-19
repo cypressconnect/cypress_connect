@@ -85,7 +85,7 @@ export default function UserPortal() {
   return (
     <div className="container" style={{ padding: '2rem 1.5rem', display: 'flex', gap: '2rem', minHeight: '80vh' }}>
       <aside style={{ width: '250px', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-        <Link to="" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Dashboard</Link>
+        <Link to="/user" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Dashboard</Link>
         <Link to="submit-lead" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Request Service</Link>
         <Link to="topics" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Topics</Link>
       </aside>
