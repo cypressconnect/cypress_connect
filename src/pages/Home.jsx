@@ -11,7 +11,7 @@ export default function Home() {
             Where Needs Meet <span className="gradient-text">Solutions</span>
           </h1>
           <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 3rem auto' }}>
-            Cypress Connect is the definitive marketplace connecting everyday people with the high school student businesses ready to serve them.
+            Local Link is the definitive marketplace connecting everyday people with the high school student businesses ready to serve them.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <Link to="/user" className="btn btn-primary">

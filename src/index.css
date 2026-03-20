@@ -2,9 +2,10 @@
 
 :root {
   /* Dynamic Modern Palette */
-  --primary: #2563eb; /* Blue */
-  --primary-hover: #1d4ed8;
-  --secondary: #16a34a; /* Green */
+  --primary: #043c9c; /* Local Link Blue */
+  --primary-hover: #032b70;
+  --secondary: #108c4c; /* Local Link Green */
+  --secondary-hover: #0b6938;
   --accent: #0ea5e9; /* Light Blue */
   
   /* Light Mode Base */
@@ -87,12 +88,12 @@ button {
 .btn-primary {
   background: linear-gradient(135deg, var(--primary), var(--primary-hover));
   color: white;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 4px 14px rgba(4, 60, 156, 0.4);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+  box-shadow: 0 6px 20px rgba(4, 60, 156, 0.6);
 }
 
 .btn-secondary {
