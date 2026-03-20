@@ -80,29 +80,63 @@ const SubmitLead = () => (
   </div>
 );
 
-const Topics = () => (
-  <div className="animate-fade-in">
-    <h2 style={{ marginBottom: '1rem' }}>Interested Topics</h2>
-    <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Join topic groups. Organizers will be notified of your interest.</p>
-    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-      {[
-        "Chess", 
-        "Swimming", 
-        "Math Tutoring", 
-        "History Tutoring", 
-        "Science Tutoring", 
-        "Piano Lessons", 
-        "Music Lessons", 
-        "Sports"
-      ].map((topic) => (
-        <div key={topic} className="glass-panel" style={{ padding: '1.5rem', flex: '1 1 300px' }}>
-          <h4 style={{ marginBottom: '0.5rem' }}>{topic}</h4>
-          <button className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }} onClick={() => alert('Interest registered! You will be notified when classes open.')}>Express Interest</button>
-        </div>
-      ))}
+const Topics = () => {
+  const [selectedTopic, setSelectedTopic] = React.useState(null);
+
+  if (selectedTopic) {
+    return (
+      <div className="animate-fade-in glass-panel" style={{ padding: '2rem' }}>
+        <button className="btn btn-secondary" style={{ marginBottom: '1.5rem', padding: '0.5rem 1rem' }} onClick={() => setSelectedTopic(null)}>&larr; Back to Topics</button>
+        <h2 style={{ marginBottom: '1rem' }}>Express Interest in {selectedTopic}</h2>
+        <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>Fill out the details below to add yourself to the <strong>{selectedTopic}</strong> topic. Student businesses offering this service will be able to see your interest and contact you directly.</p>
+        <form onSubmit={(e) => { e.preventDefault(); alert(`Interest registered for ${selectedTopic}! You will be notified when someone reaches out.`); setSelectedTopic(null); }} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '600px' }}>
+          <div>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Name</label>
+            <input type="text" required placeholder="Your Name" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }} />
+          </div>
+          <div>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Phone Number</label>
+            <input type="tel" required placeholder="(123) 456-7890" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }} />
+          </div>
+          <div>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Email</label>
+            <input type="email" required placeholder="you@example.com" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }} />
+          </div>
+          <div>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>What specifically are you looking for?</label>
+            <textarea rows={4} required placeholder={`Describe what kind of ${selectedTopic.toLowerCase()} you need...`} style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--bg-elevated)', color: 'var(--text-main)' }}></textarea>
+          </div>
+          <button type="submit" className="btn btn-primary" style={{ alignSelf: 'flex-start' }}>Join Topic</button>
+        </form>
+      </div>
+    );
+  }
+
+  return (
+    <div className="animate-fade-in">
+      <h2 style={{ marginBottom: '1rem' }}>Interested Topics</h2>
+      <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Join topic groups to let businesses know what you are looking for.</p>
+      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        {[
+          "Chess", 
+          "Swimming", 
+          "Math Tutoring", 
+          "History Tutoring", 
+          "Science Tutoring", 
+          "Piano Lessons", 
+          "Music Lessons", 
+          "Sports"
+        ].map((topic) => (
+          <div key={topic} className="glass-panel" style={{ padding: '1.5rem', flex: '1 1 300px' }}>
+            <h4 style={{ marginBottom: '0.5rem' }}>{topic}</h4>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '1rem' }}>Add your info so businesses can find you.</p>
+            <button className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }} onClick={() => setSelectedTopic(topic)}>Add My Info</button>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default function UserPortal() {
   const { user } = useAuth();

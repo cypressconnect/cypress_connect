@@ -67,7 +67,9 @@ const LeadCard = ({ title, time, price, name, phone, email }) => {
       </div>
       <div>
         {!purchased ? (
-          <button className="btn btn-primary" onClick={() => setPurchased(true)}>Buy Connect for ${price}</button>
+          <button className="btn btn-primary" onClick={() => setPurchased(true)}>
+            {price === "0" || price === 0 ? "Unlock Contact (Included)" : `Buy Connect for $${price}`}
+          </button>
         ) : (
           <button className="btn btn-secondary" disabled style={{ opacity: 0.8 }}>Contact Unlocked</button>
         )}
@@ -87,29 +89,82 @@ const BuyLeads = () => (
   </div>
 );
 
-const BuyTopics = () => (
-  <div className="animate-fade-in">
-    <h2 style={{ marginBottom: '1rem' }}>Topic Sponsorships</h2>
-    <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Target users interested in specific categories.</p>
-    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-      {[
-        "Chess", 
-        "Swimming", 
-        "Math Tutoring", 
-        "History Tutoring", 
-        "Science Tutoring", 
-        "Piano Lessons", 
-        "Music Lessons", 
-        "Sports"
-      ].map((topic) => (
-        <div key={topic} className="glass-panel" style={{ padding: '1.5rem', flex: '1 1 300px' }}>
-          <h4 style={{ marginBottom: '0.5rem' }}>{topic}</h4>
-          <button className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }} onClick={() => alert('Sponsorship confirmed! We will contact you soon.')}>Sponsor Topic</button>
+const BuyTopics = () => {
+  const [subscribedTopics, setSubscribedTopics] = React.useState([]);
+  const [viewingTopic, setViewingTopic] = React.useState(null);
+
+  const toggleSubscription = (topic) => {
+    if (subscribedTopics.includes(topic)) {
+      setSubscribedTopics(subscribedTopics.filter(t => t !== topic));
+      if (viewingTopic === topic) setViewingTopic(null);
+    } else {
+      setSubscribedTopics([...subscribedTopics, topic]);
+    }
+  };
+
+  if (viewingTopic) {
+    return (
+      <div className="animate-fade-in">
+        <button className="btn btn-secondary" style={{ marginBottom: '1.5rem', padding: '0.5rem 1rem' }} onClick={() => setViewingTopic(null)}>&larr; Back to Topics</button>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+          <h2>{viewingTopic} Users</h2>
+          <span style={{ padding: '0.5rem 1rem', background: 'rgba(99,102,241,0.1)', color: 'var(--primary)', borderRadius: '8px', fontWeight: 'bold' }}>Subscribed Access</span>
         </div>
-      ))}
+        <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Users who have joined the {viewingTopic} topic looking for services:</p>
+        <LeadCard title={`Looking for ${viewingTopic} Teacher/Provider`} time="Joined 1 hour ago" price="0" name="Alice Walker" phone="(555) 234-5678" email="alice@example.com" />
+        <LeadCard title={`Needs ${viewingTopic} ASAP`} time="Joined yesterday" price="0" name="Bob Johnson" phone="(555) 345-6789" email="bob@example.com" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="animate-fade-in">
+      <h2 style={{ marginBottom: '1rem' }}>Topic Sponsorships</h2>
+      <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Target users interested in specific categories. Subscribe to a topic to instantly unlock access to users who added their info to that topic.</p>
+      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        {[
+          "Chess", 
+          "Swimming", 
+          "Math Tutoring", 
+          "History Tutoring", 
+          "Science Tutoring", 
+          "Piano Lessons", 
+          "Music Lessons", 
+          "Sports"
+        ].map((topic) => {
+          const isSubscribed = subscribedTopics.includes(topic);
+          return (
+            <div key={topic} className="glass-panel" style={{ padding: '1.5rem', flex: '1 1 300px', borderTop: isSubscribed ? '4px solid var(--primary)' : 'none' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
+                <h4 style={{ margin: 0 }}>{topic}</h4>
+                {isSubscribed && <span style={{ fontSize: '0.75rem', background: 'var(--primary)', color: 'white', padding: '0.25rem 0.5rem', borderRadius: '4px', fontWeight: 'bold' }}>Subscribed</span>}
+              </div>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '1rem' }}>{isSubscribed ? 'You now have access to users in this topic.' : 'Subscribe to see potential customers looking for this service.'}</p>
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <button 
+                  className={isSubscribed ? "btn btn-secondary" : "btn btn-primary"} 
+                  style={{ padding: '0.5rem 1rem', flex: 1 }} 
+                  onClick={() => toggleSubscription(topic)}
+                >
+                  {isSubscribed ? 'Unsubscribe' : 'Subscribe'}
+                </button>
+                {isSubscribed && (
+                  <button 
+                    className="btn btn-primary" 
+                    style={{ padding: '0.5rem 1rem', flex: 1 }}
+                    onClick={() => setViewingTopic(topic)}
+                  >
+                    View Users
+                  </button>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const AddService = () => (
   <div className="animate-fade-in glass-panel" style={{ padding: '2rem' }}>

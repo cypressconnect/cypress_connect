@@ -47,6 +47,78 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section style={{ padding: '5rem 1.5rem', background: 'var(--bg-base)' }}>
+        <div className="container">
+          <h2 style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '2.5rem' }}>How It Works</h2>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '3rem', alignItems: 'flex-start' }}>
+            <div className="glass-panel" style={{ padding: '2.5rem', borderTop: '4px solid var(--primary)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+                <div style={{ background: 'rgba(37, 99, 235, 0.1)', padding: '1rem', borderRadius: '50%' }}>
+                  <Users size={32} color="var(--primary)" />
+                </div>
+                <h3 style={{ margin: 0, fontSize: '1.75rem' }}>How Leads Work</h3>
+              </div>
+              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <li style={{ display: 'flex', gap: '1rem' }}>
+                  <span style={{ background: 'var(--primary)', color: 'white', width: '28px', height: '28px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', flexShrink: 0 }}>1</span>
+                  <div>
+                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Customer Submits Request</strong>
+                    <span style={{ color: 'var(--text-muted)' }}>Users browse local businesses and fill out a specific request for a service they need.</span>
+                  </div>
+                </li>
+                <li style={{ display: 'flex', gap: '1rem' }}>
+                  <span style={{ background: 'var(--primary)', color: 'white', width: '28px', height: '28px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', flexShrink: 0 }}>2</span>
+                  <div>
+                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Business is Notified</strong>
+                    <span style={{ color: 'var(--text-muted)' }}>The student business receives an instant alert that a customer wants their specific service.</span>
+                  </div>
+                </li>
+                <li style={{ display: 'flex', gap: '1rem' }}>
+                  <span style={{ background: 'var(--primary)', color: 'white', width: '28px', height: '28px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', flexShrink: 0 }}>3</span>
+                  <div>
+                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Connect & Deliver</strong>
+                    <span style={{ color: 'var(--text-muted)' }}>The business unlocks the lead using their credits and contacts the customer to finalize details.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div className="glass-panel" style={{ padding: '2.5rem', borderTop: '4px solid var(--secondary)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+                <div style={{ background: 'rgba(16, 185, 129, 0.1)', padding: '1rem', borderRadius: '50%' }}>
+                  <Briefcase size={32} color="var(--secondary)" />
+                </div>
+                <h3 style={{ margin: 0, fontSize: '1.75rem' }}>How Topics Work</h3>
+              </div>
+              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <li style={{ display: 'flex', gap: '1rem' }}>
+                  <span style={{ background: 'var(--secondary)', color: 'white', width: '28px', height: '28px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', flexShrink: 0 }}>1</span>
+                  <div>
+                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Users Show Interest</strong>
+                    <span style={{ color: 'var(--text-muted)' }}>Customers looking for general services (like "Math Tutoring") add themselves to a Topic.</span>
+                  </div>
+                </li>
+                <li style={{ display: 'flex', gap: '1rem' }}>
+                  <span style={{ background: 'var(--secondary)', color: 'white', width: '28px', height: '28px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', flexShrink: 0 }}>2</span>
+                  <div>
+                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Businesses Subscribe</strong>
+                    <span style={{ color: 'var(--text-muted)' }}>Providers sponsor or subscribe to topics relevant to the services they offer.</span>
+                  </div>
+                </li>
+                <li style={{ display: 'flex', gap: '1rem' }}>
+                  <span style={{ background: 'var(--secondary)', color: 'white', width: '28px', height: '28px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', flexShrink: 0 }}>3</span>
+                  <div>
+                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Instant Access</strong>
+                    <span style={{ color: 'var(--text-muted)' }}>Subscribed businesses get instant, direct access to the contact info of everyone in that topic.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
