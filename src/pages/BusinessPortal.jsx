@@ -18,24 +18,24 @@ const DashboardHome = () => (
         <li style={{ padding: '0.5rem 0', borderBottom: '1px solid var(--border)' }}>🔔 You received a new targeted request for <strong>AP Math Tutoring</strong>!</li>
         <li style={{ padding: '0.5rem 0' }}>🔔 You received a new targeted request for <strong>Custom Cookies</strong>!</li>
       </ul>
-      <Link to="buy-leads" style={{ display: 'inline-block', marginTop: '1rem', color: 'var(--primary)', fontWeight: '500' }}>View Requests &rarr;</Link>
+      <Link to="/business/buy-leads" style={{ display: 'inline-block', marginTop: '1rem', color: 'var(--primary)', fontWeight: '500' }}>View Requests &rarr;</Link>
     </div>
 
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
       <div className="glass-panel" style={{ padding: '2rem', borderTop: '4px solid var(--primary)' }}>
         <h3>Find Customers</h3>
         <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>Find people needing tutoring, food, or other services.</p>
-        <Link to="buy-leads" className="btn btn-primary" style={{ display: 'inline-block' }}>Browse Requests</Link>
+        <Link to="/business/buy-leads" className="btn btn-primary" style={{ display: 'inline-block' }}>Browse Requests</Link>
       </div>
       <div className="glass-panel" style={{ padding: '2rem', borderTop: '4px solid var(--secondary)' }}>
         <h3>Purchase Topics</h3>
         <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>Sponsor or claim topics to build your audience.</p>
-        <Link to="buy-topics" className="btn btn-secondary" style={{ display: 'inline-block' }}>View Topics</Link>
+        <Link to="/business/buy-topics" className="btn btn-secondary" style={{ display: 'inline-block' }}>View Topics</Link>
       </div>
       <div className="glass-panel" style={{ padding: '2rem', borderTop: '4px solid var(--accent)' }}>
         <h3>Add Service</h3>
         <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>Post a class or service for users to find.</p>
-        <Link to="add-service" className="btn btn-secondary" style={{ display: 'inline-block' }}>Start Form</Link>
+        <Link to="/business/add-service" className="btn btn-secondary" style={{ display: 'inline-block' }}>Start Form</Link>
       </div>
     </div>
   </div>
@@ -143,9 +143,9 @@ export default function BusinessPortal() {
     <div className="container" style={{ padding: '2rem 1.5rem', display: 'flex', gap: '2rem', minHeight: '80vh' }}>
       <aside style={{ width: '250px', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         <Link to="/business" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Dashboard</Link>
-        <Link to="buy-leads" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Find Customers</Link>
-        <Link to="buy-topics" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Sponsorships</Link>
-        <Link to="add-service" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Add Service/Class</Link>
+        <Link to="/business/buy-leads" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Find Customers</Link>
+        <Link to="/business/buy-topics" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Sponsorships</Link>
+        <Link to="/business/add-service" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Add Service/Class</Link>
       </aside>
       <main style={{ flex: 1 }}>
         {!user && <div style={{ marginBottom: '2rem', padding: '1rem', background: 'rgba(244,63,94,0.1)', color: 'var(--accent)', borderRadius: '8px' }}>Please login to complete business transactions.</div>}

@@ -9,12 +9,12 @@ const DashboardHome = () => (
       <div className="glass-panel" style={{ padding: '2rem' }}>
         <h3>Browse Businesses</h3>
         <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>Find and request services directly from student providers.</p>
-        <Link to="browse-businesses" className="btn btn-primary" style={{ display: 'inline-block' }}>Browse Directory</Link>
+        <Link to="/user/browse-businesses" className="btn btn-primary" style={{ display: 'inline-block' }}>Browse Directory</Link>
       </div>
       <div className="glass-panel" style={{ padding: '2rem' }}>
         <h3>Topics</h3>
         <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>Add yourself to topics or classes of interest.</p>
-        <Link to="topics" className="btn btn-secondary" style={{ display: 'inline-block' }}>Explore Topics</Link>
+        <Link to="/user/topics" className="btn btn-secondary" style={{ display: 'inline-block' }}>Explore Topics</Link>
       </div>
     </div>
   </div>
@@ -28,17 +28,17 @@ const BrowseBusinesses = () => (
       <div className="glass-panel" style={{ padding: '2rem' }}>
         <h3 style={{ marginBottom: '0.5rem' }}>Sarah's AP Math Prep</h3>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '1rem' }}>Expert tutoring in Calculus and Stats.</p>
-        <Link to="../submit-lead" className="btn btn-primary" style={{ width: '100%' }}>Request Service</Link>
+        <Link to="/user/submit-lead" className="btn btn-primary" style={{ width: '100%' }}>Request Service</Link>
       </div>
       <div className="glass-panel" style={{ padding: '2rem' }}>
         <h3 style={{ marginBottom: '0.5rem' }}>Varsity Car Wash</h3>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '1rem' }}>Weekend driveway car washing team.</p>
-        <Link to="../submit-lead" className="btn btn-primary" style={{ width: '100%' }}>Request Service</Link>
+        <Link to="/user/submit-lead" className="btn btn-primary" style={{ width: '100%' }}>Request Service</Link>
       </div>
       <div className="glass-panel" style={{ padding: '2rem' }}>
         <h3 style={{ marginBottom: '0.5rem' }}>Fresh Baked Cookies</h3>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '1rem' }}>Custom orders for events and parties.</p>
-        <Link to="../submit-lead" className="btn btn-primary" style={{ width: '100%' }}>Request Service</Link>
+        <Link to="/user/submit-lead" className="btn btn-primary" style={{ width: '100%' }}>Request Service</Link>
       </div>
     </div>
   </div>
@@ -111,9 +111,9 @@ export default function UserPortal() {
     <div className="container" style={{ padding: '2rem 1.5rem', display: 'flex', gap: '2rem', minHeight: '80vh' }}>
       <aside style={{ width: '250px', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         <Link to="/user" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Dashboard</Link>
-        <Link to="browse-businesses" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Browse Businesses</Link>
-        <Link to="submit-lead" className="btn btn-secondary" style={{ display: 'none' }}>Request Service</Link>
-        <Link to="topics" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Topics</Link>
+        <Link to="/user/browse-businesses" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Browse Businesses</Link>
+        <Link to="/user/submit-lead" className="btn btn-secondary" style={{ display: 'none' }}>Request Service</Link>
+        <Link to="/user/topics" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>Topics</Link>
       </aside>
       <main style={{ flex: 1 }}>
         {!user && <div style={{ marginBottom: '2rem', padding: '1rem', background: 'rgba(244,63,94,0.1)', color: 'var(--accent)', borderRadius: '8px' }}>You are viewing this as a guest. Please login to save your submissions.</div>}
